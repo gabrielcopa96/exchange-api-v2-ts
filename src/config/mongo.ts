@@ -1,7 +1,4 @@
-import "dotenv/config"
 import { connect } from 'mongoose'
-
-const NODE_ENV = process.env.NODE_ENVz
 
 const dbConnect = async (): Promise<void> => {
 

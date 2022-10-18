@@ -16,9 +16,6 @@ app.use( express.json() )
 app.use(router)
 
 app.use( express.static(join(__dirname, "../static")) )
-// app.get('/*', (req, res) => {
-//     re
-// })
 
 db().then(() => console.log('conexion ready a mongoDB'))
 
