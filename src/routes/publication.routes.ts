@@ -5,6 +5,7 @@ import {
   getPublication,
   searchPublicationsBy,
 } from "../controllers/publication.controller";
+import { checkJwt } from "../middlewares/session";
 
 const router = Router();
 
@@ -13,10 +14,10 @@ const router = Router();
  * http://localhost:3002/publication/:id [GET]
  */
 router
-  .post("/", createPublication)
-  .get("/", searchPublicationsBy)
-  .get("/:id", getPublication)
-  .get("/:category", searchPublicationsBy)
-  .delete("/", deleteLogicPublication);
+  .post("/", checkJwt, createPublication)
+  .get("/", checkJwt, searchPublicationsBy)
+  .get("/:id", checkJwt, getPublication)
+  .get("/:category", checkJwt, searchPublicationsBy)
+  .delete("/", checkJwt, deleteLogicPublication);
 
 export { router };

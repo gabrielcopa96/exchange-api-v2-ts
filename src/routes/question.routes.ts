@@ -1,5 +1,10 @@
 import { Router } from "express";
-import { createQuestion, getQuestion, getQuestions } from "../controllers/question.controller";
+import {
+  createQuestion,
+  getQuestion,
+  getQuestions,
+} from "../controllers/question.controller";
+import { checkJwt } from "../middlewares/session";
 
 const router = Router();
 
@@ -9,9 +14,8 @@ const router = Router();
  * http://localhost:3002/question [POST]: -> Create new response for in question
  */
 router
-    .get('/', getQuestions)
-    .get('/:id', getQuestion)
-    .post('/', createQuestion)
-
+  .get("/", checkJwt, getQuestions)
+  .get("/:id", checkJwt, getQuestion)
+  .post("/", checkJwt, createQuestion);
 
 export { router };

@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { getAllsChatsByUser, getChatById } from "../controllers/chat.controller";
+import {
+  getAllsChatsByUser,
+  getChatById,
+} from "../controllers/chat.controller";
+import { checkJwt } from "../middlewares/session";
 
 const router = Router();
 
@@ -7,8 +11,8 @@ const router = Router();
  * http://localhost:3002/chat/:id_user [GET]
  * http://localhost:3002/chat/:id [GET]
  */
-    router
-        .get('/:id', getChatById)
-        .get('/:id_user', getAllsChatsByUser)
+router
+  .get("/:id", checkJwt, getChatById)
+  .get("/:id_user", checkJwt, getAllsChatsByUser);
 
-export { router }
+export { router };

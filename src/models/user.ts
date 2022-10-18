@@ -12,7 +12,8 @@ const userSchema = new Schema<User>(
             required: true 
         },
         image_profile: {
-            type: String
+            type: String,
+            default: "https://electronicssoftware.net/wp-content/uploads/user.png"
         },
         email: {
             type: String,
