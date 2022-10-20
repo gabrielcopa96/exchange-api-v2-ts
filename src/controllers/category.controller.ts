@@ -15,7 +15,7 @@ const createCategory = async ( { body }: Request, res: Response ) => {
         res.status(201).json(responseCategory)
 
     } catch (error) {
-        handleHttp(res, 'ERROR_CREATE_CATEGORY')
+        handleHttp(res, 'ERROR_CREATE_CATEGORY', error)
     }
 }
 
@@ -28,7 +28,7 @@ const getCategory = async ( { params }: Request, res: Response ) => {
         res.status(200).json(responseCategory)
 
     } catch (error) {
-        handleHttp(res, 'ERROR_GET_CATEGORY')
+        handleHttp(res, 'ERROR_GET_CATEGORY', error)
     }
 }
 
@@ -43,7 +43,7 @@ const getCategories = async ( req: RequestExt, res: Response ) => {
         });
 
     } catch (error) {
-        handleHttp(res, 'ERROR_GET_CATEGORIES')
+        handleHttp(res, 'ERROR_GET_CATEGORIES', error)
     }
 }
 

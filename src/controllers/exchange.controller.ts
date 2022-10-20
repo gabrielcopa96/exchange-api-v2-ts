@@ -11,7 +11,7 @@ const createExhange = async ({ body }: Request, res: Response) => {
         res.status(201).json(exchanges)
 
     } catch (error) {
-        handleHttp(res, "ERROR_NOT_FOUND_EXCHANGE")
+        handleHttp(res, "ERROR_NOT_FOUND_EXCHANGE", error)
     }
 }
 
@@ -24,7 +24,7 @@ const getExchanges = async (req: Request, res: Response) => {
         res.status(200).json(exchanges)
 
     } catch (error) {
-        handleHttp(res, "ERROR_NOT_FOUND_EXCHANGES")
+        handleHttp(res, "ERROR_NOT_FOUND_EXCHANGES", error)
     }
 }
 

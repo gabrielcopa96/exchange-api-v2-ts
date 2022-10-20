@@ -11,7 +11,7 @@ const getQuestions = async (req: Request, res: Response) => {
         res.status(200).json(responseQuestion)
 
     } catch (error) {
-        handleHttp(res, "ERROR_GET_QUESTIONS")
+        handleHttp(res, "ERROR_GET_QUESTIONS", error)
     }
 }
 
@@ -26,7 +26,7 @@ const getQuestion = async ({ params }: Request, res: Response) => {
         res.status(200).json(responseQuestion)
         
     } catch (error) {
-        handleHttp(res, "ERROR_GET_QUESTION")
+        handleHttp(res, "ERROR_GET_QUESTION", error)
     }
 }
 
@@ -39,7 +39,7 @@ const createQuestion = async ({ body }: Request, res: Response) => {
         res.status(201).json(question)
 
     } catch (error) {
-        handleHttp(res, "ERROR_CREATE_QUESTION")
+        handleHttp(res, "ERROR_CREATE_QUESTION", error)
     }
 }
 

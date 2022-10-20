@@ -13,7 +13,7 @@ const getChatById = async ({ params }: Request, res: Response) => {
         res.status(200).json(chat)
 
     } catch (error) {
-        handleHttp(res, "ERROR_NOT_FOUND")
+        handleHttp(res, "ERROR_NOT_FOUND", error)
     }
 }
 
@@ -28,7 +28,7 @@ const getAllsChatsByUser = async ({ params }: Request, res: Response) => {
         res.status(200).json(chatUser)
 
     } catch (error) {
-        
+        handleHttp(res, "ERROR_CHATS_BY_USERS", error)
     }
 
 }

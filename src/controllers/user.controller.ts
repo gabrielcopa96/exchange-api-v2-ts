@@ -8,7 +8,7 @@ const getUsers = async (req: Request, res: Response) => {
 
     res.status(200).json(responseUser);
   } catch (error) {
-    handleHttp(res, "ERROR_NOT_FOUND_GET_USERS");
+    handleHttp(res, "ERROR_NOT_FOUND_GET_USERS", error);
   }
 };
 
@@ -20,7 +20,7 @@ const getUser = async ({ params }: Request, res: Response) => {
 
     res.status(200).json(user);
   } catch (error) {
-    handleHttp(res, "ERROR_NOT_FOUND_GET_USER");
+    handleHttp(res, "ERROR_NOT_FOUND_GET_USER", error);
   }
 };
 

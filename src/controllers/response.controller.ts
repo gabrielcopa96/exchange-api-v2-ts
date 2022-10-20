@@ -12,7 +12,7 @@ const getResponses = async (req: Request, res: Response) => {
         res.status(200).json(responses);
 
     } catch (error) {
-        handleHttp(res, 'ERROR_GET_RESPONSES')
+        handleHttp(res, 'ERROR_GET_RESPONSES', error)
     }
 }
 
@@ -28,7 +28,7 @@ const getResponse = async ({ params }: Request, res: Response) => {
         res.status(200).json(response)
 
     } catch (error) {
-        handleHttp(res, 'ERROR_GET_RESPONSE')
+        handleHttp(res, 'ERROR_GET_RESPONSE', error)
     }
 }
 
@@ -42,7 +42,7 @@ const createResponse = async ({ body }: Request, res: Response) => {
 
 
     } catch (error) {
-        handleHttp(res, 'ERROR_CREATE_RESPONSE')
+        handleHttp(res, 'ERROR_CREATE_RESPONSE', error)
     }
 }
 

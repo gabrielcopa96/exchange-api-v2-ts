@@ -8,7 +8,7 @@ const getMessages = async (req: Request, res: Response) => {
         const responseMessages = await getAllMessages()
         res.status(200).json(responseMessages)
     } catch (error) {
-        handleHttp(res, "ERROR_GET_MESSAGES")
+        handleHttp(res, "ERROR_GET_MESSAGES", error)
     }
 }
 
@@ -19,7 +19,7 @@ const getMessage = async ({ params }: Request, res: Response) => {
         const responseMessage = await getOneMessage( id )
         res.status(200).json(responseMessage)
     } catch (error) {
-        handleHttp(res, "ERROR_GET_MESSAGE")   
+        handleHttp(res, "ERROR_GET_MESSAGE", error)   
     }
 }
 
@@ -29,7 +29,7 @@ const createMessage = async ({ body }: Request, res: Response) => {
         const responseMessages = await newMessage( body )
         res.status(201).json(responseMessages)
     } catch (error) {
-        handleHttp(res, "ERROR_CREATE_MESSAGE")
+        handleHttp(res, "ERROR_CREATE_MESSAGE", error)
     }
 }
 

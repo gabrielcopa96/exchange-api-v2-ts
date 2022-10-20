@@ -11,7 +11,7 @@ const getProducts = async (req: Request, res: Response) => {
         res.status(200).json(responseProduct)
 
     } catch (error) {
-        handleHttp(res, "ERROR_NOT_FOUND")
+        handleHttp(res, "ERROR_NOT_FOUND", error)
     }
 }
 
@@ -25,7 +25,7 @@ const getProduct = async ({ params }: Request, res: Response) => {
         res.status(200).json(responseProduct)
 
     } catch (error) {
-        handleHttp(res, "ERROR_NOT_FOUND")
+        handleHttp(res, "ERROR_NOT_FOUND", error)
     }
 }
 
@@ -38,7 +38,7 @@ const createProduct = async ({ body }: Request, res: Response) => {
         res.status(201).json(responseProduct)
         
     } catch (error) {
-        handleHttp(res, "ERROR_NOT_FOUND")
+        handleHttp(res, "ERROR_NOT_FOUND", error)
     }
 }
 

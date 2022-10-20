@@ -9,7 +9,7 @@ const registerCtrl = async ({ body }: Request, res: Response) => {
 
         res.status(201).json(responseUser)
     } catch (error) {
-        handleHttp(res, 'ERROR_REGISTER_USER')
+        handleHttp(res, 'ERROR_REGISTER_USER', error)
     }
 }
 
@@ -23,7 +23,7 @@ const loginCtrl = async ({ body }: Request, res: Response) => {
         }
         res.status(200).json(responseUser)
     } catch (error) {
-        handleHttp(res, 'ERROR_AUTH_USER')
+        handleHttp(res, 'ERROR_AUTH_USER', error)
     }
 }
 
